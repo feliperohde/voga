@@ -1,0 +1,1038 @@
+/* Voga site. Tokens first: light on :root, dark under the system preference (unless the visitor
+   picked light) and under [data-theme=dark]. The colors come from the app's mark: the deep teal
+   of its tile, the cream of the V and the amber of its bottom node. Spacing is --space-N = N × 4px. */
+
+@font-face {
+	font-family: 'Source Serif 4';
+	src: url('fonts/source-serif-4-latin-wght-normal.woff2') format('woff2');
+	font-weight: 200 900;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Source Sans 3';
+	src: url('fonts/source-sans-3-latin-wght-normal.woff2') format('woff2');
+	font-weight: 200 900;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Source Code Pro';
+	src: url('fonts/source-code-pro-latin-wght-normal.woff2') format('woff2');
+	font-weight: 200 900;
+	font-display: swap;
+}
+
+:root {
+	--page: #faf6ee;
+	--surface: #fffdf8;
+	--text: #12313a;
+	--text-muted: #4f6266;
+	--border-color: #e4dccb;
+	--border-strong: #cfc4ad;
+	--accent-color: #0f6370;
+	--button-fill: #13343b;
+	--button-hover: #0b2429;
+	--on-button: #f3ead8;
+	--secondary-fill: #fffdf8;
+	--secondary-hover: #f1eadb;
+	--node: #e9a23b;
+	--node-ring: #12313a;
+	--against: #b42318;
+	--against-bg: #fbe9e5;
+	--glow: rgba(233, 162, 59, .16);
+	--shot-shadow: 0 24px 60px -32px rgba(18, 49, 58, .35);
+	--placeholder-bg: #fbe7c4;
+	--placeholder-text: #6b3d00;
+
+	--font-display: 'Source Serif 4', Georgia, serif;
+	--font-body: 'Source Sans 3', system-ui, sans-serif;
+	--font-mono: 'Source Code Pro', ui-monospace, monospace;
+
+	--text-mono: 13px;
+	--text-sm: 15px;
+	--text-base: 18px;
+	--text-lead: 21px;
+	--text-h3: 20px;
+	--text-h2: clamp(30px, 1.8vw + 21px, 42px);
+	--text-h1: clamp(40px, 3.4vw + 22px, 66px);
+
+	--space-1: 4px;
+	--space-2: 8px;
+	--space-3: 12px;
+	--space-4: 16px;
+	--space-5: 20px;
+	--space-6: 24px;
+	--space-8: 32px;
+	--space-10: 40px;
+	--space-12: 48px;
+	--space-16: 64px;
+	--space-20: 80px;
+	--space-24: 96px;
+	--space-32: 128px;
+
+	--radius-panel: 16px;
+	--radius-shot: 12px;
+	--radius-small: 6px;
+	--radius-pill: 999px;
+
+	--rail: 1160px;
+	--gutter: var(--space-6);
+	--dur-color: 150ms;
+	color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root:not([data-theme=light]) {
+		--page: #0d2329;
+		--surface: #13343b;
+		--text: #f3ead8;
+		--text-muted: #b7b8ad;
+		--border-color: #24474f;
+		--border-strong: #3a6169;
+		--accent-color: #f0b85a;
+		--button-fill: #e9a23b;
+		--button-hover: #f2b968;
+		--on-button: #13343b;
+		--secondary-fill: #13343b;
+		--secondary-hover: #1b414a;
+		--node: #e9a23b;
+		--node-ring: #f3ead8;
+		--against: #ff8f80;
+		--against-bg: #3b2a2c;
+		--glow: rgba(47, 125, 136, .38);
+		--shot-shadow: 0 24px 70px -30px rgba(0, 0, 0, .6);
+		--placeholder-bg: #4a3512;
+		--placeholder-text: #ffd796;
+		color-scheme: dark;
+	}
+}
+
+:root[data-theme=dark] {
+	--page: #0d2329;
+	--surface: #13343b;
+	--text: #f3ead8;
+	--text-muted: #b7b8ad;
+	--border-color: #24474f;
+	--border-strong: #3a6169;
+	--accent-color: #f0b85a;
+	--button-fill: #e9a23b;
+	--button-hover: #f2b968;
+	--on-button: #13343b;
+	--secondary-fill: #13343b;
+	--secondary-hover: #1b414a;
+	--node: #e9a23b;
+	--node-ring: #f3ead8;
+	--against: #ff8f80;
+	--against-bg: #3b2a2c;
+	--glow: rgba(47, 125, 136, .38);
+	--shot-shadow: 0 24px 70px -30px rgba(0, 0, 0, .6);
+	--placeholder-bg: #4a3512;
+	--placeholder-text: #ffd796;
+	color-scheme: dark;
+}
+
+/* Base */
+* {
+	box-sizing: border-box;
+}
+
+html {
+	overflow-x: clip;
+	scroll-behavior: smooth;
+	scroll-padding-top: var(--space-24);
+}
+
+body {
+	margin: 0;
+	overflow-x: clip;
+	/* The only glow: at the top of the page, behind the header and the hero */
+	background: radial-gradient(1200px 640px at 30% -200px, var(--glow), transparent 70%) no-repeat, var(--page);
+	color: var(--text);
+	font-family: var(--font-body);
+	font-size: var(--text-base);
+	line-height: 1.6;
+	-webkit-font-smoothing: antialiased;
+	transition: background-color var(--dur-color), color var(--dur-color);
+}
+
+h1,
+h2,
+h3,
+p,
+figure,
+blockquote,
+dl,
+dd,
+ol,
+ul {
+	margin: 0;
+}
+
+h1,
+h2 {
+	min-width: 0;
+	font-family: var(--font-display);
+	font-weight: 600;
+	overflow-wrap: anywhere;
+	text-wrap: balance;
+}
+
+h1 {
+	font-size: var(--text-h1);
+	line-height: 1.04;
+	letter-spacing: -0.022em;
+}
+
+h2 {
+	font-size: var(--text-h2);
+	line-height: 1.12;
+	letter-spacing: -0.015em;
+}
+
+h3 {
+	font-size: var(--text-h3);
+	font-weight: 600;
+	line-height: 1.3;
+}
+
+a {
+	color: var(--accent-color);
+	text-underline-offset: 4px;
+}
+
+a,
+button,
+summary {
+	transition: color var(--dur-color), background-color var(--dur-color), border-color var(--dur-color);
+}
+
+:focus-visible {
+	outline: 2px solid var(--accent-color);
+	outline-offset: 3px;
+}
+
+img {
+	display: block;
+	max-width: 100%;
+	height: auto;
+}
+
+.mono {
+	font-family: var(--font-mono);
+	font-size: var(--text-mono);
+	line-height: 1.5;
+}
+
+.small {
+	color: var(--text-muted);
+	font-size: var(--text-sm);
+}
+
+.rail {
+	width: min(100%, var(--rail) + 2 * var(--gutter));
+	margin-inline: auto;
+	padding-inline: var(--gutter);
+}
+
+.skip {
+	position: absolute;
+	left: var(--space-4);
+	top: -100px;
+	z-index: 20;
+	padding: var(--space-2) var(--space-4);
+	border-radius: var(--radius-pill);
+	background: var(--button-fill);
+	color: var(--on-button);
+}
+
+.skip:focus {
+	top: var(--space-4);
+}
+
+/* Header: one floating pill, sticky */
+.header {
+	position: sticky;
+	top: var(--space-3);
+	z-index: 10;
+	padding-inline: var(--space-4);
+	margin-top: var(--space-3);
+}
+
+.header-pill {
+	display: flex;
+	align-items: center;
+	gap: var(--space-4);
+	max-width: var(--rail);
+	margin-inline: auto;
+	padding: var(--space-2) var(--space-2) var(--space-2) var(--space-4);
+	border: 1px solid var(--border-color);
+	border-radius: var(--radius-pill);
+	background: var(--surface);
+}
+
+.wordmark {
+	display: inline-flex;
+	align-items: center;
+	gap: var(--space-2);
+	color: var(--text);
+	font-family: var(--font-display);
+	font-size: 22px;
+	font-weight: 600;
+	letter-spacing: -0.01em;
+	text-decoration: none;
+}
+
+.nav {
+	display: flex;
+	gap: var(--space-1);
+	margin-inline: auto;
+}
+
+.nav a,
+.menu-panel a:not(.button) {
+	padding: var(--space-2) var(--space-3);
+	border-radius: var(--radius-pill);
+	color: var(--text);
+	font-size: var(--text-sm);
+	text-decoration: none;
+}
+
+.nav a:hover,
+.menu-panel a:not(.button):hover {
+	background: var(--secondary-hover);
+}
+
+.header-actions {
+	display: flex;
+	align-items: center;
+	gap: var(--space-2);
+}
+
+.theme-toggle,
+.menu summary {
+	display: inline-grid;
+	place-items: center;
+	min-width: 44px;
+	height: 44px;
+	padding: 0;
+	border: 1px solid var(--border-color);
+	border-radius: var(--radius-pill);
+	background: transparent;
+	color: var(--text);
+	cursor: pointer;
+}
+
+.theme-toggle:hover,
+.menu summary:hover {
+	background: var(--secondary-hover);
+}
+
+.theme-toggle svg,
+.menu summary svg {
+	width: 20px;
+	height: 20px;
+	fill: none;
+	stroke: currentColor;
+	stroke-width: 1.8;
+	stroke-linecap: round;
+	stroke-linejoin: round;
+}
+
+/* The icon shows the theme a click switches to */
+.icon-sun {
+	display: none;
+}
+
+:root[data-theme=dark] .icon-sun {
+	display: block;
+}
+
+:root[data-theme=dark] .icon-moon {
+	display: none;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root:not([data-theme=light]) .icon-sun {
+		display: block;
+	}
+
+	:root:not([data-theme=light]) .icon-moon {
+		display: none;
+	}
+}
+
+.menu {
+	display: none;
+	position: relative;
+}
+
+.menu summary {
+	display: inline-flex;
+	gap: var(--space-2);
+	padding-inline: var(--space-4);
+	list-style: none;
+}
+
+.menu summary::-webkit-details-marker {
+	display: none;
+}
+
+.menu-panel {
+	position: absolute;
+	right: 0;
+	top: calc(100% + var(--space-2));
+	display: grid;
+	gap: var(--space-1);
+	min-width: 220px;
+	padding: var(--space-3);
+	border: 1px solid var(--border-color);
+	border-radius: var(--radius-panel);
+	background: var(--surface);
+	box-shadow: var(--shot-shadow);
+}
+
+.menu-panel .button {
+	margin-top: var(--space-2);
+}
+
+/* Buttons: name the action; primary is the teal (amber in dark) pill */
+.button {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 48px;
+	padding: var(--space-3) var(--space-6);
+	border: 1px solid transparent;
+	border-radius: var(--radius-pill);
+	background: var(--button-fill);
+	color: var(--on-button);
+	font-size: var(--text-base);
+	font-weight: 600;
+	line-height: 1.2;
+	text-decoration: none;
+}
+
+.button:hover {
+	background: var(--button-hover);
+}
+
+.button:active {
+	transform: translateY(1px);
+}
+
+.button.secondary {
+	border-color: var(--border-strong);
+	background: var(--secondary-fill);
+	color: var(--text);
+}
+
+.button.secondary:hover {
+	background: var(--secondary-hover);
+}
+
+.button-small {
+	min-height: 44px;
+	padding: var(--space-2) var(--space-5);
+	font-size: var(--text-sm);
+}
+
+/* Hero: the claim on the left, the example of a promise tied to a record on the right */
+.hero {
+	display: grid;
+	grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+	align-items: center;
+	gap: var(--space-16);
+	padding-top: var(--space-24);
+	padding-bottom: var(--space-24);
+}
+
+.hero-text {
+	display: grid;
+	gap: var(--space-6);
+}
+
+.lead {
+	max-width: 36em;
+	color: var(--text-muted);
+	font-size: var(--text-lead);
+	line-height: 1.55;
+}
+
+.actions {
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--space-3);
+	margin-top: var(--space-2);
+}
+
+.download-meta {
+	color: var(--text-muted);
+	font-family: var(--font-mono);
+	font-size: var(--text-mono);
+}
+
+.example {
+	padding: var(--space-6);
+	border: 1px solid var(--border-color);
+	border-radius: var(--radius-panel);
+	background: var(--surface);
+}
+
+.example-label {
+	margin-bottom: var(--space-5);
+	color: var(--text-muted);
+}
+
+/* The motif, from the mark: a node for the promise and an amber node for the record, joined by a line */
+.link-chain {
+	display: grid;
+	gap: var(--space-6);
+}
+
+/* The line runs from under the promise's node, through the gap, to the record's node */
+.node-claim::after {
+	content: '';
+	position: absolute;
+	left: 6px;
+	top: 20px;
+	bottom: calc(-1 * var(--space-6) - 6px);
+	border-left: 2px solid var(--border-strong);
+}
+
+.node {
+	position: relative;
+	padding-left: var(--space-8);
+}
+
+.node::before {
+	content: '';
+	position: absolute;
+	left: 0;
+	top: 6px;
+	width: 14px;
+	height: 14px;
+	border: 2px solid var(--node-ring);
+	border-radius: 50%;
+	background: var(--surface);
+}
+
+.node-record::before {
+	border-color: var(--node);
+	background: var(--node);
+}
+
+.node-meta {
+	color: var(--text-muted);
+}
+
+.node blockquote {
+	margin-top: var(--space-2);
+	font-family: var(--font-display);
+	font-size: 24px;
+	line-height: 1.3;
+}
+
+.record {
+	margin-top: var(--space-2);
+}
+
+.verdict {
+	display: grid;
+	gap: var(--space-2);
+	margin-top: var(--space-6);
+	padding-top: var(--space-5);
+	border-top: 1px solid var(--border-color);
+	font-size: var(--text-sm);
+	color: var(--text-muted);
+}
+
+.status {
+	display: inline-block;
+	margin-right: var(--space-2);
+	padding: 2px var(--space-2);
+	border-radius: var(--radius-small);
+	font-weight: 600;
+}
+
+.status-against {
+	background: var(--against-bg);
+	color: var(--against);
+}
+
+/* Sections */
+.section {
+	display: grid;
+	gap: var(--space-10);
+	padding-top: var(--space-24);
+	padding-bottom: var(--space-24);
+	/* A hairline as wide as the content, not the gutters */
+	background: linear-gradient(var(--border-color), var(--border-color)) no-repeat center top / calc(100% - 2 * var(--gutter)) 1px;
+}
+
+.section-head {
+	display: grid;
+	gap: var(--space-4);
+	max-width: 46em;
+}
+
+.section-head p {
+	color: var(--text-muted);
+}
+
+.section-head-wide {
+	grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+	align-items: end;
+	gap: var(--space-12);
+	max-width: none;
+}
+
+.sources {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	column-gap: var(--space-12);
+}
+
+.sources div {
+	display: grid;
+	grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+	align-content: start;
+	gap: var(--space-4);
+	padding: var(--space-5) 0;
+	border-bottom: 1px solid var(--border-color);
+}
+
+.sources dt {
+	font-weight: 600;
+}
+
+.sources dd {
+	color: var(--text-muted);
+	font-size: var(--text-sm);
+}
+
+/* Text against proof: the claim on one side, the app on the other */
+.split {
+	grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+	align-items: center;
+	gap: var(--space-16);
+}
+
+.split-reverse {
+	grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+}
+
+.split-reverse .split-text {
+	order: 2;
+}
+
+.split-text {
+	display: grid;
+	gap: var(--space-5);
+}
+
+.split-text > p {
+	color: var(--text-muted);
+}
+
+.points {
+	display: grid;
+	gap: var(--space-3);
+	padding: 0;
+	list-style: none;
+}
+
+.points li {
+	position: relative;
+	padding-left: var(--space-8);
+	font-size: var(--text-sm);
+}
+
+.points li::before {
+	content: '';
+	position: absolute;
+	left: 2px;
+	top: 7px;
+	width: 10px;
+	height: 10px;
+	border: 2px solid var(--node);
+	border-radius: 50%;
+}
+
+.shot {
+	display: grid;
+	gap: var(--space-3);
+}
+
+.shot img {
+	width: 100%;
+	border: 1px solid var(--border-color);
+	border-radius: var(--radius-shot);
+	/* The app's window sits above the page */
+	box-shadow: var(--shot-shadow);
+}
+
+.shot figcaption {
+	color: var(--text-muted);
+	font-size: var(--text-sm);
+}
+
+/* Each screenshot comes in the page's theme */
+.shot .dark {
+	display: none;
+}
+
+:root[data-theme=dark] .shot .light {
+	display: none;
+}
+
+:root[data-theme=dark] .shot .dark {
+	display: block;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root:not([data-theme=light]) .shot .light {
+		display: none;
+	}
+
+	:root:not([data-theme=light]) .shot .dark {
+		display: block;
+	}
+}
+
+.more {
+	display: grid;
+	grid-template-columns: repeat(4, minmax(0, 1fr));
+	gap: var(--space-8);
+	padding: 0;
+	list-style: none;
+}
+
+.more li {
+	display: grid;
+	align-content: start;
+	gap: var(--space-2);
+	padding-top: var(--space-4);
+	border-top: 2px solid var(--text);
+}
+
+.more p {
+	color: var(--text-muted);
+	font-size: var(--text-sm);
+}
+
+/* Where data goes */
+.table-wrap {
+	overflow-x: auto;
+}
+
+.data-table {
+	width: 100%;
+	border-collapse: collapse;
+	font-size: var(--text-sm);
+}
+
+.data-table th,
+.data-table td {
+	padding: var(--space-4) var(--space-4) var(--space-4) 0;
+	border-bottom: 1px solid var(--border-color);
+	text-align: left;
+	vertical-align: top;
+}
+
+.data-table thead th {
+	color: var(--text-muted);
+	font-family: var(--font-mono);
+	font-size: var(--text-mono);
+	font-weight: 400;
+}
+
+.data-table tbody th {
+	width: 26%;
+	font-weight: 600;
+}
+
+.data-table td:last-child {
+	width: 24%;
+	color: var(--text-muted);
+}
+
+/* Install */
+.install-grid {
+	display: grid;
+	grid-template-columns: minmax(0, 7fr) minmax(0, 4fr);
+	gap: var(--space-16);
+}
+
+.steps {
+	display: grid;
+	gap: 0;
+	padding: 0;
+	list-style: none;
+	counter-reset: step;
+}
+
+/* The steps are a chain of nodes, like the example: each number sits on the line to the next */
+.steps li {
+	position: relative;
+	display: grid;
+	gap: var(--space-3);
+	padding: 0 0 var(--space-10) var(--space-16);
+	counter-increment: step;
+}
+
+.steps li::before {
+	content: counter(step);
+	position: absolute;
+	left: 0;
+	top: -2px;
+	display: grid;
+	place-items: center;
+	width: 40px;
+	height: 40px;
+	border: 2px solid var(--node-ring);
+	border-radius: 50%;
+	background: var(--page);
+	font-family: var(--font-display);
+	font-size: 20px;
+	font-weight: 600;
+}
+
+.steps li:last-child::before {
+	border-color: var(--node);
+	background: var(--node);
+	color: #13343b;
+}
+
+.steps li:not(:last-child)::after {
+	content: '';
+	position: absolute;
+	left: 19px;
+	top: 40px;
+	bottom: 0;
+	border-left: 2px solid var(--border-strong);
+}
+
+.steps p {
+	color: var(--text-muted);
+}
+
+.steps .button {
+	justify-self: start;
+	margin-top: var(--space-2);
+}
+
+.command {
+	margin: 0;
+	padding: var(--space-3) var(--space-4);
+	/* Wrapped, so the whole command shows on a phone; copying it still gives one line */
+	white-space: pre-wrap;
+	overflow-wrap: anywhere;
+	border: 1px solid var(--border-color);
+	border-radius: var(--radius-small);
+	background: var(--surface);
+	font-family: var(--font-mono);
+	font-size: var(--text-mono);
+}
+
+.install-notes {
+	display: grid;
+	align-self: start;
+	align-content: start;
+	gap: var(--space-3);
+	padding: var(--space-6);
+	border: 1px solid var(--border-color);
+	border-radius: var(--radius-panel);
+	background: var(--surface);
+}
+
+.install-notes h3 {
+	font-size: 17px;
+}
+
+.install-notes h3:not(:first-child) {
+	margin-top: var(--space-4);
+}
+
+.install-notes p {
+	color: var(--text-muted);
+	font-size: var(--text-sm);
+}
+
+/* Questions */
+.faq {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	column-gap: var(--space-12);
+}
+
+.faq div {
+	display: grid;
+	align-content: start;
+	gap: var(--space-2);
+	padding: var(--space-6) 0;
+	border-bottom: 1px solid var(--border-color);
+}
+
+.faq dt {
+	font-weight: 600;
+}
+
+.faq dd {
+	color: var(--text-muted);
+}
+
+/* A value still to be given: shown as what it is */
+.placeholder {
+	padding: 1px var(--space-1);
+	border-radius: 4px;
+	background: var(--placeholder-bg);
+	color: var(--placeholder-text);
+	font-family: var(--font-mono);
+	font-size: var(--text-mono);
+}
+
+/* Footer: one line */
+.footer {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: var(--space-3) var(--space-8);
+	padding-top: var(--space-10);
+	padding-bottom: var(--space-12);
+	background: linear-gradient(var(--border-color), var(--border-color)) no-repeat center top / calc(100% - 2 * var(--gutter)) 1px;
+	color: var(--text-muted);
+	font-size: var(--text-sm);
+}
+
+.footer .wordmark {
+	font-size: 19px;
+}
+
+/* Below 1000px the nav moves into the menu */
+@media (max-width: 999px) {
+	.nav,
+	.header-download {
+		display: none;
+	}
+
+	.menu {
+		display: block;
+	}
+
+	.header-actions {
+		margin-left: auto;
+	}
+
+	.hero,
+	.split,
+	.split-reverse,
+	.install-grid {
+		grid-template-columns: minmax(0, 1fr);
+		gap: var(--space-12);
+	}
+
+	.split-reverse .split-text {
+		order: 0;
+	}
+
+	.section-head-wide {
+		grid-template-columns: minmax(0, 1fr);
+		gap: var(--space-4);
+	}
+
+	.more {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+}
+
+@media (max-width: 767px) {
+	:root {
+		--gutter: var(--space-4);
+		--text-base: 17px;
+		--text-lead: 19px;
+	}
+
+	.hero {
+		padding-top: var(--space-16);
+		padding-bottom: var(--space-16);
+	}
+
+	.section {
+		padding-top: var(--space-16);
+		padding-bottom: var(--space-16);
+	}
+
+	.sources,
+	.faq {
+		grid-template-columns: minmax(0, 1fr);
+	}
+
+	.sources div {
+		grid-template-columns: minmax(0, 1fr);
+		gap: var(--space-1);
+	}
+
+	.more {
+		grid-template-columns: minmax(0, 1fr);
+	}
+
+	.example {
+		padding: var(--space-5);
+	}
+
+	.node blockquote {
+		font-size: 21px;
+	}
+
+	.steps li {
+		padding-left: calc(40px + var(--space-4));
+	}
+
+	/* The table becomes one block per destination */
+	.data-table thead {
+		display: none;
+	}
+
+	.data-table tr {
+		display: grid;
+		gap: var(--space-1);
+		padding: var(--space-4) 0;
+		border-bottom: 1px solid var(--border-color);
+	}
+
+	.data-table th,
+	.data-table td,
+	.data-table tbody th,
+	.data-table td:last-child {
+		width: auto;
+		padding: 0;
+		border: 0;
+	}
+}
+
+@media (max-width: 399px) {
+	.menu-label {
+		display: none;
+	}
+
+	.menu summary {
+		padding-inline: 0;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	html {
+		scroll-behavior: auto;
+	}
+
+	*,
+	*::before,
+	*::after {
+		transition: none !important;
+	}
+
+	.button:active {
+		transform: none;
+	}
+}

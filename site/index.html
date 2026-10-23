@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Voga: o que o político prometeu, ao lado do que ele fez</title>
+	<meta name="description" content="App para Mac que acompanha políticos brasileiros: junta discursos, vídeos, notícias e os dados oficiais da Câmara, do Senado e do TSE e aponta onde uma promessa foi cumprida ou contradita, com o registro ao lado.">
+	<link rel="canonical" href="https://feliperohde.github.io/voga/">
+	<meta property="og:type" content="website">
+	<meta property="og:locale" content="pt_BR">
+	<meta property="og:title" content="Voga: o que o político prometeu, ao lado do que ele fez">
+	<meta property="og:description" content="Promessas, votos, projetos, gastos e emendas lado a lado, com a prova. Para Mac, com a IA rodando no próprio computador.">
+	<meta property="og:url" content="https://feliperohde.github.io/voga/">
+	<meta property="og:image" content="https://feliperohde.github.io/voga/screenshots/claims-light.webp">
+	<meta name="color-scheme" content="light dark">
+	<meta name="theme-color" content="#faf6ee" media="(prefers-color-scheme: light)">
+	<meta name="theme-color" content="#0d2329" media="(prefers-color-scheme: dark)">
+	<link rel="icon" href="voga-mark.svg" type="image/svg+xml">
+	<link rel="icon" href="favicon.png" type="image/png" sizes="32x32">
+	<link rel="apple-touch-icon" href="apple-touch-icon.png">
+	<link rel="preload" href="fonts/source-serif-4-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+	<link rel="preload" href="fonts/source-sans-3-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+	<link rel="stylesheet" href="styles.css">
+	<!-- The visitor's theme, before paint; without one, the CSS follows the system -->
+	<script>try { var t = localStorage.getItem('voga-site-theme'); if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t; } catch (e) {}</script>
+	<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Voga","operatingSystem":"macOS","applicationCategory":"ReferenceApplication","inLanguage":"pt-BR","url":"https://feliperohde.github.io/voga/","downloadUrl":"https://github.com/feliperohde/voga/releases/latest"}</script>
+	<script src="main.js" defer></script>
+</head>
+<body>
+	<a class="skip" href="#main">Pular para o conteúdo</a>
+
+	<header class="header">
+		<div class="header-pill">
+			<a class="wordmark" href="#top" aria-label="Voga, início da página">
+				<img src="voga-mark.svg" alt="" width="28" height="28">Voga
+			</a>
+			<nav class="nav" aria-label="Seções">
+				<a href="#fontes">Fontes</a>
+				<a href="#promessas">Promessas</a>
+				<a href="#ao-vivo">Ao vivo</a>
+				<a href="#dados">Seus dados</a>
+				<a href="#instalar">Instalar</a>
+			</nav>
+			<div class="header-actions">
+				<button class="theme-toggle" type="button" data-theme-toggle aria-label="Usar o tema escuro">
+					<svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z"/></svg>
+					<svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2.5M12 19v2.5M2.5 12H5M19 12h2.5M5.3 5.3l1.8 1.8M16.9 16.9l1.8 1.8M5.3 18.7l1.8-1.8M16.9 7.1l1.8-1.8"/></svg>
+				</button>
+				<a class="button button-small header-download" href="https://github.com/feliperohde/voga/releases/latest" data-download>Baixar para Mac</a>
+				<details class="menu">
+					<summary aria-label="Abrir o menu"><span class="menu-label">Menu</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></summary>
+					<nav class="menu-panel" aria-label="Seções">
+						<a href="#fontes">Fontes</a>
+						<a href="#promessas">Promessas</a>
+						<a href="#ao-vivo">Ao vivo</a>
+						<a href="#dados">Seus dados</a>
+						<a href="#instalar">Instalar</a>
+						<a class="button" href="https://github.com/feliperohde/voga/releases/latest" data-download>Baixar para Mac</a>
+					</nav>
+				</details>
+			</div>
+		</div>
+	</header>
+
+	<main id="main">
+		<section class="rail hero" id="top">
+			<div class="hero-text">
+				<h1>O que o político prometeu, ao lado do que ele fez.</h1>
+				<p class="lead">O Voga junta discursos, entrevistas, vídeos, notícias e os dados oficiais da Câmara, do Senado e do TSE sobre quem você acompanha. A IA aponta onde uma promessa foi cumprida ou contradita, sempre com o registro ao lado, e só conta o que você confirmar.</p>
+				<div class="actions">
+					<a class="button" href="https://github.com/feliperohde/voga/releases/latest" data-download>Baixar para Mac</a>
+					<a class="button secondary" href="#instalar">Ver como instalar</a>
+				</div>
+				<p class="download-meta" data-release-meta aria-live="polite">Mac com Apple Silicon (M1 ou mais novo)</p>
+			</div>
+
+			<figure class="example" aria-label="Exemplo de promessa ligada a um registro">
+				<figcaption class="mono example-label">Exemplo · dados fictícios da demonstração</figcaption>
+				<div class="link-chain">
+					<div class="node node-claim">
+						<p class="mono node-meta">Promessa · Marina Exemplo · comício, 28 set. 2022 · 1:06</p>
+						<blockquote>“eu vou votar pela simplificação dos impostos”</blockquote>
+					</div>
+					<div class="node node-record">
+						<p class="mono node-meta">Registro · Câmara dos Deputados · 2 out. 2026</p>
+						<p class="record">Votação do texto-base do PLP 99/2025, que institui o imposto sobre bens e serviços: Marina Exemplo votou <strong>Não</strong>.</p>
+					</div>
+				</div>
+				<div class="verdict">
+					<p><span class="status status-against">Possível contradição</span> Ato da própria deputada · confiança da IA 92%</p>
+					<p class="verdict-note">Fica como sugestão até você ler a evidência e confirmar ou rejeitar.</p>
+				</div>
+			</figure>
+		</section>
+
+		<section class="rail section" id="fontes">
+			<div class="section-head">
+				<h2>Ele lê o que o político deixa registrado</h2>
+				<p>Você diz quem acompanhar e os nomes pelos quais a pessoa é conhecida. O Voga busca notícias e vídeos sobre ela, e você vincula os registros oficiais depois de conferir que é a mesma pessoa, porque há homônimos. Daí em diante, ele confere cada fonte sozinho, no ritmo dela.</p>
+			</div>
+			<dl class="sources">
+				<div><dt>Câmara dos Deputados</dt><dd>Votações nominais, discursos com a transcrição completa, projetos apresentados e os gastos da cota parlamentar, por fornecedor.</dd></div>
+				<div><dt>Senado Federal</dt><dd>Votações, inclusive as secretas e as ausências, projetos e discursos.</dd></div>
+				<div><dt>TSE</dt><dd>Candidaturas, coligação, resultado, bens declarados e a proposta de governo registrada.</dd></div>
+				<div><dt>Portal da Transparência e Transferegov</dt><dd>Cada emenda parlamentar, quem recebeu o dinheiro e as emendas Pix.</dd></div>
+				<div><dt>PNCP</dt><dd>Licitações e contratos da prefeitura de um prefeito que você vincular.</dd></div>
+				<div><dt>ALESP</dt><dd>Projetos e gastos de gabinete dos deputados estaduais de São Paulo.</dd></div>
+				<div><dt>Diários oficiais</dt><dd>Os trechos que citam a pessoa nos diários de centenas de prefeituras, pelo Querido Diário.</dd></div>
+				<div><dt>Notícias, vídeos e redes</dt><dd>Busca de notícias, legendas de vídeos do YouTube com o tempo de cada fala, sites, feeds RSS e perfis no Bluesky e no Mastodon.</dd></div>
+			</dl>
+			<p class="small">Ao coletar, o Voga se identifica, segue o robots.txt de cada site, espera pelo menos 2 segundos entre pedidos ao mesmo site e não busca de novo o que já guardou.</p>
+		</section>
+
+		<section class="rail section split" id="promessas">
+			<div class="split-text">
+				<h2>Cada promessa com as palavras exatas e a prova ao lado</h2>
+				<p>A IA lê discursos, vídeos, notícias e planos de governo e anota cada promessa e declaração, com o trecho exato e o link para o momento em que foi dita. Depois procura nas votações, nos projetos e nos gastos o que cumpre ou contradiz cada uma.</p>
+				<ul class="points">
+					<li>Diz de quem é o ato: da própria pessoa, de alguém do mesmo partido ou de um partido da coligação. Só o ato da própria pessoa conta contra ela.</li>
+					<li>Votações de procedimento, como requerimentos e destaques, não valem como prova.</li>
+					<li>O que a IA encontra chega como sugestão, com o motivo e a confiança. Só vira contradição ou promessa cumprida o que você confirma, e o que você rejeita não volta.</li>
+				</ul>
+			</div>
+			<figure class="shot">
+				<img class="light" src="screenshots/claims-light.webp" width="2880" height="1800" loading="lazy" alt="Tela Promessas do Voga: a promessa de votar pela simplificação dos impostos, com duas possíveis contradições, cada uma com a votação, o motivo e os botões Confirmar e Rejeitar.">
+				<img class="dark" src="screenshots/claims-dark.webp" width="2880" height="1800" loading="lazy" alt="Tela Promessas do Voga: a promessa de votar pela simplificação dos impostos, com duas possíveis contradições, cada uma com a votação, o motivo e os botões Confirmar e Rejeitar.">
+				<figcaption>Promessas, na demonstração do Voga. Pessoas, partidos e empresas das telas são fictícios.</figcaption>
+			</figure>
+		</section>
+
+		<section class="rail section" id="mapa">
+			<div class="section-head section-head-wide">
+				<h2>Quem pagou quem, num mapa</h2>
+				<p>O Mapa liga pessoas, partidos, projetos, votações, emendas, prefeituras e empresas. Cada empresa ganha o cadastro da Receita, os sócios e as sanções federais do CEIS e do CNEP, conferidas de novo todo dia. Cada ligação abre o registro oficial que a comprova.</p>
+			</div>
+			<figure class="shot shot-wide">
+				<img class="light" src="screenshots/map-light.webp" width="2880" height="1800" loading="lazy" alt="Mapa do Voga com uma gráfica aberta no painel: razão social, situação ativa, atividade, uma sanção do CEIS, o sócio e os pagamentos de gabinete, de emenda e de contrato da prefeitura.">
+				<img class="dark" src="screenshots/map-dark.webp" width="2880" height="1800" loading="lazy" alt="Mapa do Voga com uma gráfica aberta no painel: razão social, situação ativa, atividade, uma sanção do CEIS, o sócio e os pagamentos de gabinete, de emenda e de contrato da prefeitura.">
+				<figcaption>Uma empresa que recebeu da cota parlamentar, de uma emenda e da prefeitura, com uma sanção do CEIS.</figcaption>
+			</figure>
+		</section>
+
+		<section class="rail section split split-reverse" id="ao-vivo">
+			<div class="split-text">
+				<h2>Fato ou fake enquanto o candidato fala</h2>
+				<p>Num debate, numa entrevista ou num comício, o Voga transcreve a fala neste computador, separa as vozes e compara cada afirmação checável com os registros. O cartão mostra o trecho, o registro que confirma ou desmente e o motivo.</p>
+				<ul class="points">
+					<li>Possível fato, possível fake, possivelmente impreciso ou sem registro. Sem um registro citado, a IA não dá veredito.</li>
+					<li>Na tela Debate, cada debatedor tem o seu painel, com as respostas numeradas pelas perguntas do entrevistador.</li>
+					<li>Reconhecer vozes usa dado biométrico: só com o seu consentimento, fica neste computador, e desligar apaga as vozes aprendidas.</li>
+				</ul>
+			</div>
+			<figure class="shot">
+				<img class="light" src="screenshots/live-light.webp" width="2880" height="1800" loading="lazy" alt="Sessão ao vivo do Voga: a transcrição com quem disse cada fala, a pergunta Voz 2: quem é?, e cartões de possível fato e possível fake com o projeto de lei citado.">
+				<img class="dark" src="screenshots/live-dark.webp" width="2880" height="1800" loading="lazy" alt="Sessão ao vivo do Voga: a transcrição com quem disse cada fala, a pergunta Voz 2: quem é?, e cartões de possível fato e possível fake com o projeto de lei citado.">
+				<figcaption>Uma sessão ao vivo, 25 segundos depois de começar.</figcaption>
+			</figure>
+		</section>
+
+		<section class="rail section" id="mais">
+			<h2>Também no Voga</h2>
+			<ul class="more">
+				<li><h3>Jornal</h3><p>As notícias, vídeos e postagens de todas as investigações, por dia ou pelas mais relevantes da semana. Mais disso e Menos disso ensinam o que importa para você.</p></li>
+				<li><h3>Perguntar</h3><p>Respostas só com o que foi coletado, cada afirmação ligada à fonte e ao minuto do vídeo. Quando nada responde, ele diz que não encontrou.</p></li>
+				<li><h3>Sugestões de busca</h3><p>Uma vez por dia, a IA sugere buscas para as promessas ainda sem registro. Só rodam as que você aprovar.</p></li>
+				<li><h3>Interesses</h3><p>Além de política, qualquer assunto: um tratamento, uma tecnologia, um mercado, com notícias e vídeos ordenados pelo que tem a ver com ele.</p></li>
+			</ul>
+		</section>
+
+		<section class="rail section" id="dados">
+			<div class="section-head">
+				<h2>O que fica no seu computador e o que sai dele</h2>
+				<p>O Voga não tem servidor. O que ele coleta, o que a IA encontra e o que você revisa ficam num banco de dados na pasta do app, neste computador. Sai dele só o que está na tabela.</p>
+			</div>
+			<div class="table-wrap">
+				<table class="data-table">
+					<thead>
+						<tr><th scope="col">Para onde</th><th scope="col">O que vai</th><th scope="col">Quando</th></tr>
+					</thead>
+					<tbody>
+						<tr><th scope="row">Os sites e serviços das suas fontes</th><td>O pedido de cada página ou registro, com o Voga identificado. Câmara, Senado, TSE, Portal da Transparência, PNCP, ALESP, Querido Diário e os sites e feeds que você adicionar.</td><td>Quando cada fonte roda</td></tr>
+						<tr><th scope="row">Bing Notícias e YouTube</th><td>Os nomes e temas que você acompanha.</td><td>Nas buscas de notícias e de vídeos</td></tr>
+						<tr><th scope="row">minhareceita.org</th><td>O CNPJ de cada empresa do Mapa.</td><td>Quando uma empresa aparece ou você pede os dados</td></tr>
+						<tr><th scope="row">Hugging Face e GitHub</th><td>Nada seu: só o download dos modelos de IA e do yt-dlp, que lê os vídeos.</td><td>Ao baixar cada modelo; o yt-dlp, uma vez por semana</td></tr>
+						<tr><th scope="row">GitHub</th><td>A consulta por versão nova do Voga.</td><td>Ao abrir o app</td></tr>
+						<tr><th scope="row">A IA que você conectar</th><td>O texto que ela lê e as suas perguntas. Nas sessões ao vivo, o áudio, se a transcrição for dela.</td><td>Só se você conectar uma</td></tr>
+						<tr><th scope="row">Brave Search ou o seu SearXNG</th><td>As buscas na web.</td><td>Só se você configurar</td></tr>
+					</tbody>
+				</table>
+			</div>
+			<p class="small">A chave de licença é conferida neste computador, sem consulta a servidor.</p>
+		</section>
+
+		<section class="rail section install" id="instalar">
+			<h2>Instalar</h2>
+			<div class="install-grid">
+				<ol class="steps">
+					<li>
+						<h3>Baixe o Voga</h3>
+						<p>Um arquivo .dmg para Mac com Apple Silicon (M1 ou mais novo).</p>
+						<a class="button" href="https://github.com/feliperohde/voga/releases/latest" data-download>Baixar para Mac</a>
+					</li>
+					<li>
+						<h3>Arraste para Aplicativos</h3>
+						<p>Abra o arquivo baixado e arraste o Voga para a pasta Aplicativos.</p>
+					</li>
+					<li>
+						<h3>Abra pela primeira vez</h3>
+						<p>O Voga ainda não é autenticado pela Apple, então o macOS avisa que não consegue verificá-lo. Clique em OK, abra Ajustes do Sistema › Privacidade e Segurança e, perto do fim da página, clique em Abrir Mesmo Assim. Só é preciso na primeira vez.</p>
+						<p>Se preferir o Terminal:</p>
+						<pre class="command"><code>xattr -dr com.apple.quarantine /Applications/Voga.app</code></pre>
+					</li>
+					<li>
+						<h3>Escolha a IA</h3>
+						<p>Na tela inicial, baixe os modelos que rodam neste computador (de 1,8 a 3,2 GB, conforme a memória) ou conecte a IA que você já usa: OpenAI, Google Gemini, Claude, Groq, DeepSeek, OpenRouter ou um servidor compatível com OpenAI. Com menos de 8 GB de memória, o Voga recomenda conectar uma.</p>
+					</li>
+				</ol>
+				<aside class="install-notes">
+					<h3>Atualizações</h3>
+					<p>O Voga procura versões novas ao abrir e avisa quando há uma. Todas as versões, com as notas de cada uma, ficam no <a href="https://github.com/feliperohde/voga/releases">GitHub</a>.</p>
+					<h3>Avaliação e licença</h3>
+					<p>Perguntar, Mapa, Ao vivo, Fontes oficiais e Descoberta automática funcionam durante o período de avaliação. Depois, pedem uma chave de licença, inserida em Configurações › Licença. Para pedir a sua, escreva para <span class="placeholder">[E-MAIL DE CONTATO]</span>.</p>
+					<h3>Som do computador</h3>
+					<p>Para ouvir o que toca no computador nas sessões ao vivo (uma live, um debate transmitido), o Voga precisa do macOS 14.2 ou mais novo. O microfone funciona antes disso.</p>
+				</aside>
+			</div>
+		</section>
+
+		<section class="rail section" id="perguntas">
+			<h2>Perguntas</h2>
+			<dl class="faq">
+				<div>
+					<dt>O Voga diz quem está mentindo?</dt>
+					<dd>Não. Ele mostra uma promessa ao lado do registro que pode cumpri-la ou contradizê-la, com o motivo, e marca como sugestão. Contradição é o que você confirma depois de ler a evidência.</dd>
+				</div>
+				<div>
+					<dt>Preciso pagar por uma IA?</dt>
+					<dd>Não. Os modelos integrados rodam neste computador. Conectar uma IA externa é opcional, e o provedor pode cobrar pelo uso.</dd>
+				</div>
+				<div>
+					<dt>As pessoas das telas são reais?</dt>
+					<dd>Não. As telas são da demonstração do Voga, com pessoas, partidos, empresas e veículos fictícios.</dd>
+				</div>
+				<div>
+					<dt>O código do Voga é aberto?</dt>
+					<dd>Ainda não. O repositório no GitHub guarda este site e os instaladores; o código do app fica fechado por enquanto.</dd>
+				</div>
+				<div>
+					<dt>Tem versão para Windows ou Linux?</dt>
+					<dd>Ainda não. Por enquanto, só para Mac com Apple Silicon.</dd>
+				</div>
+			</dl>
+		</section>
+	</main>
+
+	<footer class="rail footer">
+		<a class="wordmark" href="#top"><img src="voga-mark.svg" alt="" width="24" height="24">Voga</a>
+		<span>© 2026 Felipe Rohde</span>
+		<a href="https://github.com/feliperohde/voga/releases">Versões no GitHub</a>
+		<span class="placeholder">[E-MAIL DE CONTATO]</span>
+	</footer>
+</body>
+</html>
