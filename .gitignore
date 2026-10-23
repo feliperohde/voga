@@ -1,0 +1,8 @@
+# The global gitignore of this machine hides every scripts/ folder: this one is part of the repo
+!scripts/
+
+.DS_Store
+node_modules/
+
+# antislop audits: working notes, not part of the public repo
+anti-slop/
