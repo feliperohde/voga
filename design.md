@@ -12,7 +12,7 @@ From the app's mark (`voga-mark.svg`): the deep teal of its tile (`#13343b`), th
 
 - Light (the default when the system states none): warm paper `--page`, teal ink `--text`, a teal primary button with cream text, teal links.
 - Dark: deep teal `--page`, the mark's teal as `--surface`, cream text, an amber primary button with teal text, amber links.
-- Amber is the one accent: the primary button in dark, the record's node, the last install step, the bullet rings. In light it is never used for text (2:1 on paper); `--placeholder-*` is the only other warm tone.
+- Amber is the one accent: the primary button in dark, the record's node, the last install step, the bullet rings. In light it is never used for text (2:1 on paper).
 - Red (`--against`) appears only in the hero example, for "Possível contradição", as in the app.
 - Glow only at the top of the page.
 
@@ -20,7 +20,7 @@ From the app's mark (`voga-mark.svg`): the deep teal of its tile (`#13343b`), th
 
 - Headlines (h1, h2): Source Serif 4, 600, slight negative tracking, `text-wrap: balance`.
 - Text: Source Sans 3, the app's own typeface, 18px (17px on phones).
-- Data: Source Code Pro at `--text-mono` (13px), only for app data: the example's labels, the version line, table headers, the Terminal command.
+- Data: Source Code Pro at `--text-mono` (13px), only for app data: the example's labels, the version line, table headers.
 
 ## Motif
 

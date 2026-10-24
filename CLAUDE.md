@@ -37,8 +37,8 @@ The site needs no change for a new version: `main.js` asks GitHub's API for the 
 - Never write that data never leaves the computer. The "Seus dados" table lists every place something goes, from the app's code: the sources' sites and services, Bing News and YouTube (the followed names), minhareceita.org (CNPJs), Hugging Face and GitHub (model and yt-dlp downloads), GitHub (update check), and only if set up, the connected AI provider and Brave Search or SearXNG. Update the table when the app starts talking to something new.
 - Screenshots come only from the app's demo (`pnpm build:mock`), whose people, parties, companies and outlets are fictional. Never show a real politician. The example in the hero uses the demo's Marina Exemplo and is labeled as an example.
 - The trial features (from the app's `entitlement::FEATURE_IDS`, flowsint left out): Perguntar, Mapa, Ao vivo, Fontes oficiais, Descoberta automática.
+- Contact is only through the repository's GitHub issues (no email on the site for now), including requests for a license key. The app is signed and notarized by Apple, so the install steps have no Gatekeeper workaround: only macOS's "app downloaded from the internet" prompt on the first open.
 
 ## Still pending
 
-- The contact email (how to ask for a license key): `[E-MAIL DE CONTATO]` in the install notes and the footer.
 - If the site moves to its own domain: `canonical`, the `og:` URLs and the JSON-LD in `index.html`, and the install link in `scripts/release.mjs`.
