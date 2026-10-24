@@ -42,8 +42,6 @@
 	--against-bg: #fbe9e5;
 	--glow: rgba(233, 162, 59, .16);
 	--shot-shadow: 0 24px 60px -32px rgba(18, 49, 58, .35);
-	--placeholder-bg: #fbe7c4;
-	--placeholder-text: #6b3d00;
 
 	--font-display: 'Source Serif 4', Georgia, serif;
 	--font-body: 'Source Sans 3', system-ui, sans-serif;
@@ -102,8 +100,6 @@
 		--against-bg: #3b2a2c;
 		--glow: rgba(47, 125, 136, .38);
 		--shot-shadow: 0 24px 70px -30px rgba(0, 0, 0, .6);
-		--placeholder-bg: #4a3512;
-		--placeholder-text: #ffd796;
 		color-scheme: dark;
 	}
 }
@@ -127,8 +123,6 @@
 	--against-bg: #3b2a2c;
 	--glow: rgba(47, 125, 136, .38);
 	--shot-shadow: 0 24px 70px -30px rgba(0, 0, 0, .6);
-	--placeholder-bg: #4a3512;
-	--placeholder-text: #ffd796;
 	color-scheme: dark;
 }
 
@@ -822,19 +816,6 @@ img {
 	margin-top: var(--space-2);
 }
 
-.command {
-	margin: 0;
-	padding: var(--space-3) var(--space-4);
-	/* Wrapped, so the whole command shows on a phone; copying it still gives one line */
-	white-space: pre-wrap;
-	overflow-wrap: anywhere;
-	border: 1px solid var(--border-color);
-	border-radius: var(--radius-small);
-	background: var(--surface);
-	font-family: var(--font-mono);
-	font-size: var(--text-mono);
-}
-
 .install-notes {
 	display: grid;
 	align-self: start;
@@ -880,16 +861,6 @@ img {
 
 .faq dd {
 	color: var(--text-muted);
-}
-
-/* A value still to be given: shown as what it is */
-.placeholder {
-	padding: 1px var(--space-1);
-	border-radius: 4px;
-	background: var(--placeholder-bg);
-	color: var(--placeholder-text);
-	font-family: var(--font-mono);
-	font-size: var(--text-mono);
 }
 
 /* Footer: one line */
