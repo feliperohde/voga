@@ -13,7 +13,7 @@ The public home of Voga, published as the GitHub repository `feliperohde/voga`: 
 ## Commands
 
 - Preview: `python3 -m http.server -d site 8080`, then http://localhost:8080.
-- Screenshots of the app: in the app repo `cd frontend && pnpm build:mock`, then here `node scripts/screenshots.mjs ../voga/frontend/out-mock [claims map live]`. It serves the demo itself, opens the demo's politics investigation (`inv-demo`) in Portuguese, in both themes, and writes `site/screenshots/{name}-{light|dark}.webp` (1440×900 at 2x). The Map's layout differs on every load: the script finds the biggest company on the canvas, opens its panel and asks for its public data. The live view starts a session and waits for the demo's scripted debate.
+- Screenshots of the app: in the app repo `cd frontend && pnpm build:mock`, then here `node scripts/screenshots.mjs ../voga/frontend/out-mock [claims map live home compare]`. It serves the demo itself, in Portuguese, in both themes, and writes `site/screenshots/{name}-{light|dark}.webp` (1440×900 at 2x). Before each view it sets what is open in the app (`voga.context` in localStorage): the demo's politics investigation (`inv-demo`) for claims, map and live, nothing for Home, and `inv-demo` with the mayor's `inv-prefeita` for the comparison. The Map's layout differs on every load: the script finds the biggest company on the canvas, opens its panel and asks for its public data. The live view starts a session and waits for the demo's scripted debate.
 - Release: see below.
 
 ## Publishing a version
@@ -31,10 +31,10 @@ The site needs no change for a new version: `main.js` asks GitHub's API for the 
 
 ## Content rules
 
-- Brazilian Portuguese, for people who follow politics, not developers. Say what the app does with the app's own names for things (Promessas, Mapa, Ao vivo, Fontes, Perguntar, Jornal).
+- Brazilian Portuguese, for people who follow politics, not developers. Say what the app does with the app's own names for things (Início, Visão geral, Promessas, Mapa, Ao vivo, Fontes, Perguntar, Jornal, Comparação, Acompanhamentos).
 - No em dash. None of: poderoso, revolucionário, inteligente, fácil, simples, incrível, or their English equivalents. No marketing numbers, no testimonials. Buttons name the action ("Baixar para Mac", "Ver como instalar").
 - Voga never presents a finding as fact: write "possível contradição", "sugestão", "você confirma". It is the app's core rule.
-- Never write that data never leaves the computer. The "Seus dados" table lists every place something goes, from the app's code: the sources' sites and services, Bing News and YouTube (the followed names), minhareceita.org (CNPJs), Hugging Face and GitHub (model and yt-dlp downloads), GitHub (update check), and only if set up, the connected AI provider and Brave Search or SearXNG. Update the table when the app starts talking to something new.
+- Never write that data never leaves the computer. The "Seus dados" table lists every place something goes, from the app's code: the sources' sites and services (with IBGE, to find a mayor's city, and the transparency portals of São Paulo, Minas Gerais, Espírito Santo and Bahia), the news sites (their pictures), Bing News and YouTube (the followed names), minhareceita.org (CNPJs), the CGU and the State of São Paulo (sanctions lists), Hugging Face and GitHub (model and yt-dlp downloads), GitHub (update check), and only if set up, the connected AI provider and Brave Search or SearXNG. Update the table when the app starts talking to something new: `grep -rhoE 'https?://[A-Za-z0-9.-]+' frontend/src-tauri/src` in the app repo lists the hosts.
 - Screenshots come only from the app's demo (`pnpm build:mock`), whose people, parties, companies and outlets are fictional. Never show a real politician. The example in the hero uses the demo's Marina Exemplo and is labeled as an example.
 - The trial features (from the app's `entitlement::FEATURE_IDS`, flowsint left out): Perguntar, Mapa, Ao vivo, Fontes oficiais, Descoberta automática.
 - Contact is only through the repository's GitHub issues (no email on the site for now), including requests for a license key. The app is signed and notarized by Apple, so the install steps have no Gatekeeper workaround: only macOS's "app downloaded from the internet" prompt on the first open.

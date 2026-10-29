@@ -17,11 +17,20 @@ if (!demoDir || !existsSync(join(demoDir, 'index.html'))) {
 const OUT = new URL('../site/screenshots/', import.meta.url);
 const PORT = 3129;
 
-/** name → the demo page, and what to do there before the capture. */
+/** The demo's politics investigation, open on its own. */
+const POLITICS = { kind: 'investigation', ids: ['inv-demo'] };
+
+/**
+ * name → the demo page, what is open in it (the app's `voga.context`: one investigation, several
+ * compared, or null for Home) and what to do there before the capture.
+ */
 const VIEWS = {
-	claims: { path: '/claims' },
-	map: { path: '/map', settle: 7000, after: openCompany },
-	live: { path: '/live', run: startLiveSession, settle: 26000 },
+	claims: { path: '/claims', context: POLITICS },
+	map: { path: '/map', context: POLITICS, settle: 7000, after: openCompany },
+	live: { path: '/live', context: POLITICS, run: startLiveSession, settle: 26000 },
+	home: { path: '/', context: null },
+	// Two politicians: Marina Exemplo and the mayor Helena Prado share a company (Gráfica Exemplo Ltda)
+	compare: { path: '/compare', context: { kind: 'investigation', ids: ['inv-demo', 'inv-prefeita'] }, settle: 2000 },
 };
 
 /** Starts a live session in the demo, which then acts out a short debate. */
@@ -86,12 +95,12 @@ await send('Runtime.enable');
 await send('Emulation.setDeviceMetricsOverride', { width: 1440, height: 900, deviceScaleFactor: 2, mobile: false });
 try {
 	for (const theme of ['light', 'dark']) {
-		// The app keeps its language, theme and open investigation (the demo's politics one) in localStorage
-		const { identifier } = (await send('Page.addScriptToEvaluateOnNewDocument', {
-			source: `localStorage.setItem('voga.uiLanguage', 'pt-BR'); localStorage.setItem('app-theme', '${theme}'); localStorage.setItem('voga.investigation', 'inv-demo');`,
-		})).result;
 		for (const [name, view] of Object.entries(VIEWS)) {
 			if (only.length && !only.includes(name)) continue;
+			// The app keeps its language, theme and what is open in localStorage
+			const { identifier } = (await send('Page.addScriptToEvaluateOnNewDocument', {
+				source: `localStorage.setItem('voga.uiLanguage', 'pt-BR'); localStorage.setItem('app-theme', '${theme}'); localStorage.setItem('voga.context', ${JSON.stringify(JSON.stringify(view.context))});`,
+			})).result;
 			await send('Page.navigate', { url: `http://localhost:${PORT}${view.path}` });
 			await sleep(3500);
 			if (view.run) await view.run(send);
@@ -101,8 +110,8 @@ try {
 			const file = `${name}-${theme}.webp`;
 			writeFileSync(new URL(file, OUT), Buffer.from(shot.result.data, 'base64'));
 			console.log(file);
+			await send('Page.removeScriptToEvaluateOnNewDocument', { identifier });
 		}
-		await send('Page.removeScriptToEvaluateOnNewDocument', { identifier });
 	}
 } finally {
 	close();

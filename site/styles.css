@@ -581,6 +581,16 @@ img {
 	max-width: none;
 }
 
+/* When the text runs well past the title, both start at the top */
+.section-head-top {
+	align-items: start;
+}
+
+.section-head-text {
+	display: grid;
+	gap: var(--space-5);
+}
+
 .sources {
 	display: grid;
 	grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -696,7 +706,7 @@ img {
 
 .more {
 	display: grid;
-	grid-template-columns: repeat(4, minmax(0, 1fr));
+	grid-template-columns: repeat(3, minmax(0, 1fr));
 	gap: var(--space-8);
 	padding: 0;
 	list-style: none;

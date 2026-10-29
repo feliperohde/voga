@@ -29,7 +29,7 @@ The mark is a graph: two nodes joined at an amber node. The site repeats it wher
 ## Layout
 
 - One rail, `--rail` 1160px, gutters `--gutter` (24px, 16px on phones). Sections are separated by a hairline as wide as the content.
-- Hero: text left (7fr), the example panel right (5fr). Promessas and Ao vivo: text against a screenshot (5fr/7fr, mirrored for Ao vivo). Mapa: the head split in two over a full-width screenshot. Fontes, Perguntas: two columns of ruled rows. Também: four ruled columns. Seus dados: a table (one block per row on phones). Instalar: the steps beside a notes panel.
+- Hero: text left (7fr), the example panel right (5fr). Promessas, Ao vivo and Comparar: text against a screenshot (5fr/7fr, mirrored for Ao vivo, so the text alternates sides). Mapa and Início: the head split in two over a full-width screenshot (Início's head starts at the top, its text being longer). Fontes, Perguntas: two columns of ruled rows. Também: three ruled columns. Seus dados: a table (one block per row on phones). Instalar: the steps beside a notes panel.
 - Panels (radius `--radius-panel`) only for the example and the install notes; screenshots have `--radius-shot` and the one shadow.
 - Below 1000px the nav moves into a `<details>` menu; below 400px the menu button is icon-only. Check 320, 360, 768 and 1440px in both themes, with no horizontal scroll.
 

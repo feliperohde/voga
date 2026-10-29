@@ -105,6 +105,7 @@
 				<div><dt>Portal da Transparência e Transferegov</dt><dd>Cada emenda parlamentar, quem recebeu o dinheiro e as emendas Pix.</dd></div>
 				<div><dt>PNCP</dt><dd>Licitações e contratos da prefeitura de um prefeito que você vincular.</dd></div>
 				<div><dt>ALESP</dt><dd>Projetos e gastos de gabinete dos deputados estaduais de São Paulo.</dd></div>
+				<div><dt>Portais de transparência dos estados</dt><dd>As emendas dos deputados estaduais de São Paulo, Minas Gerais, Espírito Santo e Bahia, com o órgão, o objeto, a cidade, os valores e quem recebeu.</dd></div>
 				<div><dt>Diários oficiais</dt><dd>Os trechos que citam a pessoa nos diários de centenas de prefeituras, pelo Querido Diário.</dd></div>
 				<div><dt>Notícias, vídeos e redes</dt><dd>Busca de notícias, legendas de vídeos do YouTube com o tempo de cada fala, sites, feeds RSS e perfis no Bluesky e no Mastodon.</dd></div>
 			</dl>
@@ -131,7 +132,7 @@
 		<section class="rail section" id="mapa">
 			<div class="section-head section-head-wide">
 				<h2>Quem pagou quem, num mapa</h2>
-				<p>O Mapa liga pessoas, partidos, projetos, votações, emendas, prefeituras e empresas. Cada empresa ganha o cadastro da Receita, os sócios e as sanções federais do CEIS e do CNEP, conferidas de novo todo dia. Cada ligação abre o registro oficial que a comprova.</p>
+				<p>O Mapa liga pessoas, partidos, projetos, votações, emendas, prefeituras e empresas. Cada empresa ganha o cadastro da Receita, os sócios e as sanções, conferidas de novo todo dia nas listas do governo federal (CEIS, CNEP e CEPIM) e nas do Estado de São Paulo. Cada ligação abre o registro oficial que a comprova, e a Visão geral da investigação mostra as empresas sancionadas ligadas a cada pessoa, com as datas, sem tratar a ligação como acusação.</p>
 			</div>
 			<figure class="shot shot-wide">
 				<img class="light" src="screenshots/map-light.webp" width="2880" height="1800" loading="lazy" alt="Mapa do Voga com uma gráfica aberta no painel: razão social, situação ativa, atividade, uma sanção do CEIS, o sócio e os pagamentos de gabinete, de emenda e de contrato da prefeitura.">
@@ -157,13 +158,50 @@
 			</figure>
 		</section>
 
+		<section class="rail section split" id="comparar">
+			<div class="split-text">
+				<h2>Dois candidatos, ou dois assuntos, lado a lado</h2>
+				<p>Escolha duas ou mais investigações e o Voga mostra onde elas se conectam e onde divergem: as notícias que ficam entre as duas, os partidos, projetos e empresas que aparecem nos registros de ambas, as votações em que votaram juntos e quando discordaram, e os temas das promessas de cada um.</p>
+				<ul class="points">
+					<li>A IA pode escrever um resumo de onde se conectam, onde divergem e o que ainda falta saber, citando os trechos que usou.</li>
+					<li>Com várias abertas, Notícias, Documentos, Mapa e Perguntar valem para todas juntas. No Mapa, o que aparece em mais de uma ganha um contorno.</li>
+					<li>Funciona também com assuntos: inteligência artificial e indústria, por exemplo, com as notícias que falam dos dois.</li>
+				</ul>
+			</div>
+			<figure class="shot">
+				<img class="light" src="screenshots/compare-light.webp" width="2880" height="1800" loading="lazy" alt="Tela Comparação do Voga com o mandato de Marina Exemplo e a prefeitura de Cidade Exemplo: o botão Escrever o resumo, as notícias que ligam as duas investigações e a Gráfica Exemplo Ltda, com quem a deputada gastou e que a prefeitura contratou.">
+				<img class="dark" src="screenshots/compare-dark.webp" width="2880" height="1800" loading="lazy" alt="Tela Comparação do Voga com o mandato de Marina Exemplo e a prefeitura de Cidade Exemplo: o botão Escrever o resumo, as notícias que ligam as duas investigações e a Gráfica Exemplo Ltda, com quem a deputada gastou e que a prefeitura contratou.">
+				<figcaption>Uma deputada e uma prefeita lado a lado: a mesma gráfica aparece nos registros das duas.</figcaption>
+			</figure>
+		</section>
+
+		<section class="rail section" id="inicio">
+			<div class="section-head section-head-wide section-head-top">
+				<h2>Tudo o que você acompanha numa tela</h2>
+				<div class="section-head-text">
+					<p>Ao abrir, o Voga mostra cada investigação num card: se está coletando, indexando ou com alguma fonte falhando, a última contradição ou promessa cumprida, quanto espera a sua revisão e quanto espaço ocupa. O que ainda não foi revisado aparece marcado “a revisar”. Abaixo ficam as últimas notícias dos assuntos que você acompanha, com imagem.</p>
+					<ul class="points">
+						<li>O placar conta só o que você confirmou: contradições, falas checadas como falsas, promessas cumpridas e falas verdadeiras, e escândalos. O que a IA sugeriu e ninguém revisou fica numa nota à parte.</li>
+						<li>Cada número do placar abre as provas.</li>
+					</ul>
+				</div>
+			</div>
+			<figure class="shot shot-wide">
+				<img class="light" src="screenshots/home-light.webp" width="2880" height="1800" loading="lazy" alt="Tela de início do Voga: os cards das investigações de Marina Exemplo, com uma promessa cumprida, e da prefeitura de Cidade Exemplo, com um escândalo a revisar, cada um com fontes, documentos e o que espera revisão; abaixo, o Jornal com as notícias dos assuntos acompanhados.">
+				<img class="dark" src="screenshots/home-dark.webp" width="2880" height="1800" loading="lazy" alt="Tela de início do Voga: os cards das investigações de Marina Exemplo, com uma promessa cumprida, e da prefeitura de Cidade Exemplo, com um escândalo a revisar, cada um com fontes, documentos e o que espera revisão; abaixo, o Jornal com as notícias dos assuntos acompanhados.">
+				<figcaption>O Início, com duas investigações e dois acompanhamentos da demonstração.</figcaption>
+			</figure>
+		</section>
+
 		<section class="rail section" id="mais">
 			<h2>Também no Voga</h2>
 			<ul class="more">
-				<li><h3>Jornal</h3><p>As notícias, vídeos e postagens de todas as investigações, por dia ou pelas mais relevantes da semana. Mais disso e Menos disso ensinam o que importa para você.</p></li>
+				<li><h3>Jornal</h3><p>As notícias, vídeos e postagens dos assuntos que você acompanha, em cards com imagem, por dia ou pelas mais relevantes da semana. Mais disso e Menos disso ensinam o que importa para você.</p></li>
+				<li><h3>Acompanhamentos</h3><p>Além de política, qualquer assunto: um tratamento, uma tecnologia, um mercado, com notícias e vídeos ordenados pelo que tem a ver com ele.</p></li>
 				<li><h3>Perguntar</h3><p>Respostas só com o que foi coletado, cada afirmação ligada à fonte e ao minuto do vídeo. Quando nada responde, ele diz que não encontrou.</p></li>
 				<li><h3>Sugestões de busca</h3><p>Uma vez por dia, a IA sugere buscas para as promessas ainda sem registro. Só rodam as que você aprovar.</p></li>
-				<li><h3>Interesses</h3><p>Além de política, qualquer assunto: um tratamento, uma tecnologia, um mercado, com notícias e vídeos ordenados pelo que tem a ver com ele.</p></li>
+				<li><h3>Escândalos</h3><p>Marque uma notícia como escândalo e diga quem ela envolve. A IA sugere quando uma notícia relata investigação, denúncia ou condenação de alguém que você acompanha; só conta depois que você confirma.</p></li>
+				<li><h3>Agendamento da coleta</h3><p>Para cada investigação, com que frequência buscar cada tipo de fonte e em que horários e dias o Voga pode ir à internet por ela. Dá para pausar tudo de uma vez, e Rodar agora funciona mesmo assim.</p></li>
 			</ul>
 		</section>
 
@@ -178,9 +216,11 @@
 						<tr><th scope="col">Para onde</th><th scope="col">O que vai</th><th scope="col">Quando</th></tr>
 					</thead>
 					<tbody>
-						<tr><th scope="row">Os sites e serviços das suas fontes</th><td>O pedido de cada página ou registro, com o Voga identificado. Câmara, Senado, TSE, Portal da Transparência, PNCP, ALESP, Querido Diário e os sites e feeds que você adicionar.</td><td>Quando cada fonte roda</td></tr>
+						<tr><th scope="row">Os sites e serviços das suas fontes</th><td>O pedido de cada página ou registro, com o Voga identificado. Câmara, Senado, TSE, Portal da Transparência, PNCP, IBGE (para achar a prefeitura), ALESP, os portais de transparência de São Paulo, Minas Gerais, Espírito Santo e Bahia, Querido Diário e os sites e feeds que você adicionar.</td><td>Quando cada fonte roda</td></tr>
+						<tr><th scope="row">Os sites das notícias, vídeos e posts</th><td>O pedido de cada imagem. A cópia guardada é baixada uma vez, com o Voga identificado. Carregando do site (no padrão, só enquanto não há cópia), o pedido vai a cada vez que a notícia aparece, e o site vê esse acesso.</td><td>A cópia, depois da coleta; a do site, ao mostrar a notícia</td></tr>
 						<tr><th scope="row">Bing Notícias e YouTube</th><td>Os nomes e temas que você acompanha.</td><td>Nas buscas de notícias e de vídeos</td></tr>
 						<tr><th scope="row">minhareceita.org</th><td>O CNPJ de cada empresa do Mapa.</td><td>Quando uma empresa aparece ou você pede os dados</td></tr>
+						<tr><th scope="row">Controladoria-Geral da União e Estado de São Paulo</th><td>Nada seu: só o download das listas de sanções (CEIS, CNEP, CEPIM e as sanções paulistas).</td><td>Uma vez por dia, quando há empresas no Mapa</td></tr>
 						<tr><th scope="row">Hugging Face e GitHub</th><td>Nada seu: só o download dos modelos de IA e do yt-dlp, que lê os vídeos.</td><td>Ao baixar cada modelo; o yt-dlp, uma vez por semana</td></tr>
 						<tr><th scope="row">GitHub</th><td>A consulta por versão nova do Voga.</td><td>Ao abrir o app</td></tr>
 						<tr><th scope="row">A IA que você conectar</th><td>O texto que ela lê e as suas perguntas. Nas sessões ao vivo, o áudio, se a transcrição for dela.</td><td>Só se você conectar uma</td></tr>
@@ -226,6 +266,10 @@
 				<div>
 					<dt>O Voga diz quem está mentindo?</dt>
 					<dd>Não. Ele mostra uma promessa ao lado do registro que pode cumpri-la ou contradizê-la, com o motivo, e marca como sugestão. Contradição é o que você confirma depois de ler a evidência.</dd>
+				</div>
+				<div>
+					<dt>O placar diz quem mente?</dt>
+					<dd>Não. Ele conta o que você confirmou depois de ler a evidência: uma contradição entre uma promessa e um voto, ou uma fala checada como falsa contra um registro. Uma contradição pode ter explicação, e o Voga mostra o registro para você julgar. O que a IA sugeriu e ninguém revisou não entra no placar.</dd>
 				</div>
 				<div>
 					<dt>Preciso pagar por uma IA?</dt>
