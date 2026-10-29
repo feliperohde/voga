@@ -6,3 +6,6 @@ node_modules/
 
 # antislop audits: working notes, not part of the public repo
 anti-slop/
+
+# A version's hand-off from the app repo (release-0.3.0.md): what to change here, and what to check before releasing
+/release-*.md
