@@ -4,6 +4,8 @@ O Voga é um app para Mac que acompanha políticos brasileiros. Ele junta discur
 
 **Site:** https://feliperohde.github.io/voga/
 
+**Código do app:** [github.com/feliperohde/voga-app](https://github.com/feliperohde/voga-app), software livre sob a licença GPL-3.0.
+
 ## Baixar
 
 A versão mais recente fica em [Releases](https://github.com/feliperohde/voga/releases/latest): baixe o arquivo `.dmg`. É para Mac com Apple Silicon (M1 ou mais novo), assinado e verificado pela Apple.
@@ -18,8 +20,8 @@ Os outros arquivos de cada versão (`Voga.app.tar.gz`, `.sig` e `latest.json`) s
 
 ## O que há neste repositório
 
-O código do app ainda não é público. Este repositório tem o site (pasta `site/`) e as versões do app, em Releases. Os arquivos "Source code" de cada versão, que o GitHub cria sozinho, contêm só o site.
+Este repositório tem o site (pasta `site/`) e as versões do app, em Releases. O código do app fica em [feliperohde/voga-app](https://github.com/feliperohde/voga-app). Os arquivos "Source code" de cada versão, que o GitHub cria sozinho aqui, contêm só o site.
 
 Dúvidas, problemas e pedidos de chave de licença: abra uma [issue](https://github.com/feliperohde/voga/issues).
 
-© 2026 Felipe Rohde. Todos os direitos reservados. As fontes em `site/fonts/` são da Adobe, sob a SIL Open Font License 1.1 (`site/fonts/LICENSE.txt`).
+O site: © 2026 Felipe Rohde, todos os direitos reservados. O app é software livre, sob a GPL-3.0 (veja o [voga-app](https://github.com/feliperohde/voga-app)). As fontes em `site/fonts/` são da Adobe, sob a SIL Open Font License 1.1 (`site/fonts/LICENSE.txt`).
