@@ -23,7 +23,7 @@
 	<link rel="stylesheet" href="styles.css">
 	<!-- The visitor's theme, before paint; without one, the CSS follows the system -->
 	<script>try { var t = localStorage.getItem('voga-site-theme'); if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t; } catch (e) {}</script>
-	<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Voga","operatingSystem":"macOS","applicationCategory":"ReferenceApplication","inLanguage":"pt-BR","url":"https://feliperohde.github.io/voga/","downloadUrl":"https://github.com/feliperohde/voga/releases/latest"}</script>
+	<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Voga","operatingSystem":"macOS","applicationCategory":"ReferenceApplication","inLanguage":"pt-BR","url":"https://feliperohde.github.io/voga/","downloadUrl":"https://github.com/feliperohde/voga/releases/latest","license":"https://www.gnu.org/licenses/gpl-3.0.html","isAccessibleForFree":true}</script>
 	<script src="main.js" defer></script>
 </head>
 <body>
@@ -208,7 +208,7 @@
 		<section class="rail section" id="dados">
 			<div class="section-head">
 				<h2>O que fica no seu computador e o que sai dele</h2>
-				<p>O Voga não tem servidor. O que ele coleta, o que a IA encontra e o que você revisa ficam num banco de dados na pasta do app, neste computador. Sai dele só o que está na tabela.</p>
+				<p>O Voga não tem servidor. O que ele coleta, o que a IA encontra e o que você revisa ficam num banco de dados na pasta do app, neste computador. Sai dele só o que está na tabela, e o <a href="https://github.com/feliperohde/voga-app">código do app</a> é aberto para quem quiser conferir.</p>
 			</div>
 			<div class="table-wrap">
 				<table class="data-table">
@@ -281,7 +281,7 @@
 				</div>
 				<div>
 					<dt>O código do Voga é aberto?</dt>
-					<dd>Ainda não. O repositório no GitHub guarda este site e os instaladores; o código do app fica fechado por enquanto.</dd>
+					<dd>Sim. O código do app está no GitHub, em <a href="https://github.com/feliperohde/voga-app">feliperohde/voga-app</a>, sob a licença GPL-3.0. Qualquer pessoa pode ler como ele coleta, o que manda para a IA e para onde vai cada dado, compilar o app e propor correções.</dd>
 				</div>
 				<div>
 					<dt>Tem versão para Windows ou Linux?</dt>
@@ -294,6 +294,7 @@
 	<footer class="rail footer">
 		<a class="wordmark" href="#top"><img src="voga-mark.svg" alt="" width="24" height="24">Voga</a>
 		<span>© 2026 Felipe Rohde</span>
+		<a href="https://github.com/feliperohde/voga-app">Código no GitHub</a>
 		<a href="https://github.com/feliperohde/voga/releases">Versões no GitHub</a>
 		<a href="https://github.com/feliperohde/voga/issues">Contato pelo GitHub</a>
 	</footer>
