@@ -22,6 +22,6 @@ Os outros arquivos de cada versão (`Voga.app.tar.gz`, `.sig` e `latest.json`) s
 
 Este repositório tem o site (pasta `site/`) e as versões do app, em Releases. O código do app fica em [feliperohde/voga-app](https://github.com/feliperohde/voga-app). Os arquivos "Source code" de cada versão, que o GitHub cria sozinho aqui, contêm só o site.
 
-Dúvidas, problemas e pedidos de chave de licença: abra uma [issue](https://github.com/feliperohde/voga/issues).
+Dúvidas e problemas: abra uma [issue](https://github.com/feliperohde/voga/issues).
 
 O site: © 2026 Felipe Rohde, todos os direitos reservados. O app é software livre, sob a GPL-3.0 (veja o [voga-app](https://github.com/feliperohde/voga-app)). As fontes em `site/fonts/` são da Adobe, sob a SIL Open Font License 1.1 (`site/fonts/LICENSE.txt`).
