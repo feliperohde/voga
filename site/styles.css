@@ -826,6 +826,17 @@ img {
 	margin-top: var(--space-2);
 }
 
+.steps .actions .button {
+	margin-top: 0;
+}
+
+/* A terminal command in a step: it breaks anywhere, so it never widens a phone's page */
+.steps code {
+	font-family: var(--font-mono);
+	font-size: var(--text-mono);
+	overflow-wrap: anywhere;
+}
+
 .install-notes {
 	display: grid;
 	align-self: start;

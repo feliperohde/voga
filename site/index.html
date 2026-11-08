@@ -4,12 +4,12 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Voga: o que o político prometeu, ao lado do que ele fez</title>
-	<meta name="description" content="App para Mac que acompanha políticos brasileiros: junta discursos, vídeos, notícias e os dados oficiais da Câmara, do Senado e do TSE e aponta onde uma promessa foi cumprida ou contradita, com o registro ao lado.">
+	<meta name="description" content="App para Mac, Windows e Linux que acompanha políticos brasileiros: junta discursos, vídeos, notícias e os dados oficiais da Câmara, do Senado e do TSE e aponta onde uma promessa foi cumprida ou contradita, com o registro ao lado.">
 	<link rel="canonical" href="https://feliperohde.github.io/voga/">
 	<meta property="og:type" content="website">
 	<meta property="og:locale" content="pt_BR">
 	<meta property="og:title" content="Voga: o que o político prometeu, ao lado do que ele fez">
-	<meta property="og:description" content="Promessas, votos, projetos, gastos e emendas lado a lado, com a prova. Para Mac, com a IA rodando no próprio computador.">
+	<meta property="og:description" content="Promessas, votos, projetos, gastos e emendas lado a lado, com a prova. Para Mac, Windows e Linux, com a IA rodando no próprio computador.">
 	<meta property="og:url" content="https://feliperohde.github.io/voga/">
 	<meta property="og:image" content="https://feliperohde.github.io/voga/screenshots/claims-light.webp">
 	<meta name="color-scheme" content="light dark">
@@ -23,7 +23,7 @@
 	<link rel="stylesheet" href="styles.css">
 	<!-- The visitor's theme, before paint; without one, the CSS follows the system -->
 	<script>try { var t = localStorage.getItem('voga-site-theme'); if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t; } catch (e) {}</script>
-	<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Voga","operatingSystem":"macOS","applicationCategory":"ReferenceApplication","inLanguage":"pt-BR","url":"https://feliperohde.github.io/voga/","downloadUrl":"https://github.com/feliperohde/voga/releases/latest","license":"https://www.gnu.org/licenses/gpl-3.0.html","isAccessibleForFree":true}</script>
+	<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Voga","operatingSystem":"macOS, Windows, Linux","applicationCategory":"ReferenceApplication","inLanguage":"pt-BR","url":"https://feliperohde.github.io/voga/","downloadUrl":"https://github.com/feliperohde/voga/releases/latest","license":"https://www.gnu.org/licenses/gpl-3.0.html","isAccessibleForFree":true}</script>
 	<script src="main.js" defer></script>
 </head>
 <body>
@@ -46,7 +46,7 @@
 					<svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z"/></svg>
 					<svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2.5M12 19v2.5M2.5 12H5M19 12h2.5M5.3 5.3l1.8 1.8M16.9 16.9l1.8 1.8M5.3 18.7l1.8-1.8M16.9 7.1l1.8-1.8"/></svg>
 				</button>
-				<a class="button button-small header-download" href="https://github.com/feliperohde/voga/releases/latest" data-download>Baixar para Mac</a>
+				<a class="button button-small header-download" href="https://github.com/feliperohde/voga/releases/latest" data-download="">Baixar para Mac</a>
 				<details class="menu">
 					<summary aria-label="Abrir o menu"><span class="menu-label">Menu</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></summary>
 					<nav class="menu-panel" aria-label="Seções">
@@ -55,7 +55,7 @@
 						<a href="#ao-vivo">Ao vivo</a>
 						<a href="#dados">Seus dados</a>
 						<a href="#instalar">Instalar</a>
-						<a class="button" href="https://github.com/feliperohde/voga/releases/latest" data-download>Baixar para Mac</a>
+						<a class="button" href="https://github.com/feliperohde/voga/releases/latest" data-download="">Baixar para Mac</a>
 					</nav>
 				</details>
 			</div>
@@ -68,7 +68,7 @@
 				<h1>O que o político prometeu, ao lado do que ele fez.</h1>
 				<p class="lead">O Voga junta discursos, entrevistas, vídeos, notícias e os dados oficiais da Câmara, do Senado e do TSE sobre quem você acompanha. A IA aponta onde uma promessa foi cumprida ou contradita, sempre com o registro ao lado, e só conta o que você confirmar.</p>
 				<div class="actions">
-					<a class="button" href="https://github.com/feliperohde/voga/releases/latest" data-download>Baixar para Mac</a>
+					<a class="button" href="https://github.com/feliperohde/voga/releases/latest" data-download="">Baixar para Mac</a>
 					<a class="button secondary" href="#instalar">Ver como instalar</a>
 				</div>
 				<p class="download-meta" data-release-meta aria-live="polite">Mac com Apple Silicon (M1 ou mais novo)</p>
@@ -237,12 +237,19 @@
 				<ol class="steps">
 					<li>
 						<h3>Baixe o Voga</h3>
-						<p>Um arquivo .dmg para Mac com Apple Silicon (M1 ou mais novo), assinado e verificado pela Apple.</p>
-						<a class="button" href="https://github.com/feliperohde/voga/releases/latest" data-download>Baixar para Mac</a>
+						<p>Para Mac com Apple Silicon (M1 ou mais novo), assinado e verificado pela Apple; para Windows 10 ou 11, 64 bits; e para Linux de 64 bits, em .deb para Ubuntu, Debian e Mint ou em AppImage para as outras distribuições.</p>
+						<div class="actions">
+							<a class="button" href="https://github.com/feliperohde/voga/releases/latest" data-download="mac">Baixar para Mac</a>
+							<a class="button secondary" href="https://github.com/feliperohde/voga/releases/latest" data-download="windows">Baixar para Windows</a>
+							<a class="button secondary" href="https://github.com/feliperohde/voga/releases/latest" data-download="deb">Baixar para Linux (.deb)</a>
+							<a class="button secondary" href="https://github.com/feliperohde/voga/releases/latest" data-download="appimage">Baixar para Linux (AppImage)</a>
+						</div>
 					</li>
 					<li>
-						<h3>Arraste para Aplicativos</h3>
-						<p>Abra o arquivo baixado e arraste o Voga para a pasta Aplicativos. Na primeira vez que você abrir o Voga, o macOS pergunta se quer abrir um app baixado da internet: clique em Abrir.</p>
+						<h3>Instale</h3>
+						<p><strong>Mac:</strong> abra o arquivo baixado e arraste o Voga para a pasta Aplicativos. Na primeira vez que você abrir o Voga, o macOS pergunta se quer abrir um app baixado da internet: clique em Abrir.</p>
+						<p><strong>Windows:</strong> abra o instalador e siga os passos. O instalador ainda não tem assinatura digital, então o Windows pode mostrar "O Windows protegeu o computador": clique em Mais informações e depois em Executar assim mesmo.</p>
+						<p><strong>Linux:</strong> abra o .deb na central de programas, ou no terminal rode <code>sudo apt install ./Voga_*_amd64.deb</code> na pasta do download. O AppImage não precisa instalar: nas propriedades do arquivo, permita executá-lo como programa e abra com dois cliques. Se ele não abrir, instale a libfuse2 (no Ubuntu 24.04, libfuse2t64).</p>
 					</li>
 					<li>
 						<h3>Escolha a IA</h3>
@@ -255,7 +262,9 @@
 					<h3>Grátis e sem prazo</h3>
 					<p>Todos os recursos funcionam desde o primeiro dia, sem período de avaliação nem chave de licença. O código é aberto, sob a licença GPL-3.0, no <a href="https://github.com/feliperohde/voga-app">GitHub</a>.</p>
 					<h3>Som do computador</h3>
-					<p>Para ouvir o que toca no computador nas sessões ao vivo (uma live, um debate transmitido), o Voga precisa do macOS 14.2 ou mais novo. O microfone funciona antes disso.</p>
+					<p>Para ouvir o que toca no computador nas sessões ao vivo (uma live, um debate transmitido), o Voga precisa do Windows ou do macOS 14.2 ou mais novo; no Linux, por enquanto, só o microfone. O microfone funciona em todos.</p>
+					<h3>Placa de vídeo</h3>
+					<p>No Windows e no Linux, os modelos integrados e a transcrição ao vivo usam a placa de vídeo pelo Vulkan (NVIDIA, AMD ou Intel, com o driver de vídeo atualizado). Sem uma, rodam no processador, mais devagar.</p>
 				</aside>
 			</div>
 		</section>
@@ -285,7 +294,7 @@
 				</div>
 				<div>
 					<dt>Tem versão para Windows ou Linux?</dt>
-					<dd>Ainda não. Por enquanto, só para Mac com Apple Silicon.</dd>
+					<dd>Sim, para Windows 10 e 11 e para Linux, em computadores de 64 bits com processador Intel ou AMD. Os arquivos e os passos estão em <a href="#instalar">Instalar</a>.</dd>
 				</div>
 			</dl>
 		</section>
