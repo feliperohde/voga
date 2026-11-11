@@ -1,32 +1,18 @@
-// The theme toggle, the phone menu, and the download buttons, which point at the latest release's
-// files on GitHub: [data-download] at the visitor's system, [data-download="mac|windows|deb|appimage"]
-// at that file. Without JavaScript (or when GitHub doesn't answer) they open the releases page.
+// The theme toggle, the menus (the phone's and the download choices), and the download links, which
+// point at the latest release's files on GitHub: [data-download="windows|mac|deb|appimage"] at that
+// system's file. Without JavaScript (or when GitHub doesn't answer) they open the releases page.
 
 const REPO = 'feliperohde/voga';
 const THEME_KEY = 'voga-site-theme';
+const SYSTEMS = 'Windows, Mac e Linux';
 
-// Each download: the release file it points at, and for a visitor's system, its button and requirement
+// Each download's file in the release
 const DOWNLOADS = {
-	mac: { file: /aarch64\.dmg$/, label: 'Baixar para Mac', requirement: 'Mac com Apple Silicon (M1 ou mais novo)' },
-	windows: { file: /-setup\.exe$/, label: 'Baixar para Windows', requirement: 'Windows 10 ou 11, 64 bits' },
-	deb: { file: /\.deb$/, label: 'Baixar para Linux', requirement: 'Linux de 64 bits, .deb para Ubuntu, Debian e Mint (AppImage em Instalar)' },
-	appimage: { file: /\.AppImage$/ },
+	windows: /-setup\.exe$/,
+	mac: /aarch64\.dmg$/,
+	deb: /\.deb$/,
+	appimage: /\.AppImage$/,
 };
-
-// Phones and anything unknown get the Mac's, as before there were others
-function visitorDownload() {
-	const platform = navigator.userAgentData?.platform || navigator.userAgent;
-	if (/Android|iPhone|iPad|CrOS/i.test(platform)) return 'mac';
-	if (/Win/i.test(platform)) return 'windows';
-	if (/Linux|X11/i.test(platform)) return 'deb';
-	return 'mac';
-}
-const visitor = visitorDownload();
-const REQUIREMENT = DOWNLOADS[visitor].requirement;
-const linksTo = (name) => document.querySelectorAll(name ? `[data-download="${name}"]` : '[data-download=""]');
-for (const link of linksTo()) link.textContent = DOWNLOADS[visitor].label;
-// In Instalar, the visitor's system is the primary button
-for (const name of Object.keys(DOWNLOADS)) for (const link of linksTo(name)) link.classList.toggle('secondary', name !== visitor);
 
 const root = document.documentElement;
 const systemDark = window.matchMedia('(prefers-color-scheme: dark)');
@@ -49,16 +35,23 @@ toggle.addEventListener('click', () => {
 systemDark.addEventListener('change', labelToggle);
 labelToggle();
 
-// A link in the menu jumps to its section: close the menu behind it
-const menu = document.querySelector('.menu');
-menu.addEventListener('click', (event) => {
-	if (event.target.closest('a')) menu.open = false;
-});
+// A menu closes after a choice (a section or a download), on Escape, and on a click elsewhere
+const menus = document.querySelectorAll('details.menu, details.download-menu');
+for (const menu of menus) {
+	menu.addEventListener('click', (event) => {
+		if (event.target.closest('a')) menu.open = false;
+	});
+}
 document.addEventListener('keydown', (event) => {
-	if (event.key === 'Escape' && menu.open) {
+	if (event.key !== 'Escape') return;
+	for (const menu of menus) {
+		if (!menu.open) continue;
 		menu.open = false;
 		menu.querySelector('summary').focus();
 	}
+});
+document.addEventListener('click', (event) => {
+	for (const menu of menus) if (menu.open && !menu.contains(event.target)) menu.open = false;
 });
 
 const meta = document.querySelector('[data-release-meta]');
@@ -66,29 +59,30 @@ const dateFormat = new Intl.DateTimeFormat('pt-BR', { day: 'numeric', month: 'lo
 const sizeFormat = new Intl.NumberFormat('pt-BR', { maximumFractionDigits: 0 });
 
 async function findLatestRelease() {
-	meta.textContent = `Procurando a versão mais recente… · ${REQUIREMENT}`;
+	meta.textContent = `Procurando a versão mais recente… · ${SYSTEMS}`;
 	try {
 		const response = await fetch(`https://api.github.com/repos/${REPO}/releases/latest`, { headers: { Accept: 'application/vnd.github+json' } });
 		if (response.status === 404) {
-			meta.textContent = `A primeira versão ainda não foi publicada. O botão abre a página de versões no GitHub. · ${REQUIREMENT}`;
+			meta.textContent = `A primeira versão ainda não foi publicada. Os links abrem a página de versões no GitHub. · ${SYSTEMS}`;
 			return;
 		}
 		if (!response.ok) throw new Error(`GitHub: ${response.status}`);
 		const release = await response.json();
 		// A file missing from the release keeps its links on the releases page
-		const files = {};
-		for (const [name, { file }] of Object.entries(DOWNLOADS)) {
-			files[name] = release.assets.find((asset) => file.test(asset.name));
-			for (const link of linksTo(name)) if (files[name]) link.href = files[name].browser_download_url;
+		for (const [name, file] of Object.entries(DOWNLOADS)) {
+			const asset = release.assets.find(({ name: fileName }) => file.test(fileName));
+			if (!asset) continue;
+			for (const link of document.querySelectorAll(`[data-download="${name}"]`)) {
+				link.href = asset.browser_download_url;
+				// The menus' choices say their size after what they need
+				link.querySelector('span')?.append(` · ${sizeFormat.format(asset.size / 1e6)} MB`);
+			}
 		}
-		const mine = files[visitor];
-		if (!mine) throw new Error(`no ${visitor} file in the latest release`);
-		for (const link of linksTo()) link.href = mine.browser_download_url;
 		const version = release.tag_name.replace(/^v/, '');
 		const date = dateFormat.format(new Date(release.published_at));
-		meta.textContent = `Versão ${version}, de ${date} · ${sizeFormat.format(mine.size / 1e6)} MB · ${REQUIREMENT}`;
+		meta.textContent = `Versão ${version}, de ${date} · ${SYSTEMS}`;
 	} catch {
-		meta.textContent = `Não consegui consultar a versão mais recente agora. O botão abre a página de versões no GitHub. · ${REQUIREMENT}`;
+		meta.textContent = `Não consegui consultar a versão mais recente agora. Os links abrem a página de versões no GitHub. · ${SYSTEMS}`;
 	}
 }
 

@@ -386,8 +386,65 @@ img {
 	box-shadow: var(--shot-shadow);
 }
 
-.menu-panel .button {
+/* Download: a menu of systems, each with what it needs (and, once GitHub answers, its size) */
+.download-menu {
+	position: relative;
+}
+
+.download-menu summary {
+	gap: var(--space-2);
+	list-style: none;
+	cursor: pointer;
+}
+
+.download-menu summary::-webkit-details-marker {
+	display: none;
+}
+
+.download-menu summary svg {
+	width: 18px;
+	height: 18px;
+	fill: none;
+	stroke: currentColor;
+	stroke-width: 2;
+	stroke-linecap: round;
+	stroke-linejoin: round;
+	transition: transform 150ms;
+}
+
+.download-menu[open] summary svg {
+	transform: rotate(180deg);
+}
+
+.download-menu .menu-panel {
+	z-index: 5;
+	min-width: 260px;
+}
+
+.hero .download-menu .menu-panel {
+	right: auto;
+	left: 0;
+}
+
+.menu-panel [data-download] {
+	display: grid;
+	gap: 2px;
+	font-weight: 600;
+}
+
+.menu-panel [data-download] span {
+	color: var(--text-muted);
+	font-size: var(--text-mono);
+	font-weight: 400;
+}
+
+.menu-heading {
 	margin-top: var(--space-2);
+	padding: var(--space-3) var(--space-3) var(--space-1);
+	border-top: 1px solid var(--border-color);
+	color: var(--text-muted);
+	font-family: var(--font-mono);
+	font-size: var(--text-mono);
 }
 
 /* Buttons: name the action; primary is the teal (amber in dark) pill */
